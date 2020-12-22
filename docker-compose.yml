@@ -13,6 +13,9 @@ services:
   web:
     build: .
     command: python /home/by/projects/dfp/manage.py runserver 0.0.0.0:8000
+    environment:
+      - SECRET_KEY=!l&=5zezvv74o)j18#zaf!*^mk&1tt@#urq4exrz_fl4ya(!w&     
+      - DEBUG=1
     volumes:
     - .:/home/by/projects/dfp
     ports:
