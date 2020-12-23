@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     #local app
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    'books.apps.BooksConfig',
 ]
 #django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -165,6 +166,7 @@ AUTHENTICATION_BACKENDS = (
 'allauth.account.auth_backends.AuthenticationBackend', # new
 )
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
 ACCOUNT_USERNAME_REQUIRED = False # new
 ACCOUNT_AUTHENTICATION_METHOD = 'email' # new
 ACCOUNT_EMAIL_REQUIRED = True # new
