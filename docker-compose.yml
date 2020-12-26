@@ -16,6 +16,8 @@ services:
     environment:
       - SECRET_KEY=!l&=5zezvv74o)j18#zaf!*^mk&1tt@#urq4exrz_fl4ya(!w&     
       - DEBUG=1
+      - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_GrmCVV9pgPpAuXpX06LZd6u500SFCiA79O
+      - STRIPE_TEST_SECRET_KEY=sk_test_vAaITeHvLaqe3aVd1QPMunLt00ts4X358I
     volumes:
     - .:/home/by/projects/dfp
     ports:

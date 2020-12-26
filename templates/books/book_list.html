@@ -3,6 +3,9 @@
 {% block title %}Books{% endblock %}
 
 {% block content %}
+	{% if not perms.books.special_status %}
+	<a class="btn btn-success" href="{% url 'orders' %}">Purchase All Books</a>
+	{% endif %}
 	{% for book in object_list %}
 		<div>
 			<h2><a href="{{ book.get_absolute_url }}">{{book.title}}</a></h2>
