@@ -5,6 +5,9 @@
 
 {% block content %}
 	<h1>Homepages</h1>
+	<form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}" method="get">
+		<input type="text" name="q" class="form-control mr-sm-2" placeholder="Search" arial-label='Search'>
+	</form>
 	<img class="bookcover" src="{% static 'images/bruce-mars.jpg'%}" alt="bruce-mars">
 	{% if user.is_authenticated %}
 		Hi {{ user.email }}
