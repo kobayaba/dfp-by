@@ -11,6 +11,9 @@ django-allauth = "*"
 pillow = "*"
 stripe = "*"
 django-debug-toolbar = "*"
+whitenoise = "*"
+gunicorn = "*"
+dj-database-url = "*"
 
 [dev-packages]
 

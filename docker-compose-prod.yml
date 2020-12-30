@@ -1,37 +1,23 @@
-#version: '3.7'
-#services:
-#	web:
-#		build: .
-#		command: python /home/by/projects/dfp/manage.py runserver 0.0.0.0:8000
-#		volumes:
-#			- .:/home/by/projects/dfp/
-#		ports:
-#			- 8000:8000
-
 version: '3.7'
+
 services:
   web:
     build: .
     #command: python /home/by/projects/dfp/manage.py runserver 0.0.0.0:8000
     command: gunicorn postgresql_project.wsgi -b 0.0.0.0:8000
     environment:
-      - ENVIRONMENT=development
-      - SECRET_KEY=!l&=5zezvv74o)j18#zaf!*^mk&1tt@#urq4exrz_fl4ya(!w&     
-      - DEBUG=1
+      - ENVIRONMENT=production
+      - SECRET_KEY=!l&=5zezvv74o)j18#zaf!*^mk&1tt@#urq4exrz_fl4ya(!w&
+      - DEBUG=0
       - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_GrmCVV9pgPpAuXpX06LZd6u500SFCiA79O
       - STRIPE_TEST_SECRET_KEY=sk_test_vAaITeHvLaqe3aVd1QPMunLt00ts4X358I
-    volumes:
-    - .:/home/by/projects/dfp
     ports:
       - 8000:8000
     depends_on:
       - db
+
   db:
     image: postgres:11
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-volumes:
-  postgres_data:
